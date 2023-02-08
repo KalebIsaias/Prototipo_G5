@@ -7,7 +7,7 @@
 [ext_resource path="res://Main Characters/Ninja Frog/Jump (32x32).png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 10, 13 )
+extents = Vector2( 10.6667, 13 )
 
 [sub_resource type="AtlasTexture" id=14]
 atlas = ExtResource( 4 )
@@ -137,13 +137,11 @@ scale = Vector2( 3, 3 )
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2( 0, 3 )
+position = Vector2( -4.76837e-07, 3 )
 shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 13 )
 animation = "idle"
-frame = 7
 playing = true
 flip_h = true

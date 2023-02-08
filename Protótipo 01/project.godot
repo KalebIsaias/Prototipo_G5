@@ -14,6 +14,10 @@ config/name="Protótipo"
 run/main_scene="res://Scenes/Fase.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+GlobalVar="*res://Scripts/GlobalVar.gd"
+
 [display]
 
 window/stretch/mode="2d"

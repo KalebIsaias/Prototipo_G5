@@ -1,7 +1,8 @@
 extends KinematicBody2D
 
-#Variáveis
+# variáveis
 var motion = Vector2.ZERO;
+# var da velocidade
 var speed = 350;
 
 func _process(delta):
