@@ -198,7 +198,12 @@ playing = true
 
 [node name="Camera2D" type="Camera2D" parent="AnimatedSprite"]
 current = true
+limit_left = 0
+limit_top = 0
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
 smoothing_enabled = true
+editor_draw_drag_margin = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 13 )
