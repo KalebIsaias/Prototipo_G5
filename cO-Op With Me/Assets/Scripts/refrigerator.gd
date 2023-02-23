@@ -9,11 +9,11 @@ func _on_Refrigerator_body_entered(body):
 func _on_Refrigerator_body_exited(body):
 	if body.name == "Player":
 		in_area = 0
+		$Label.text = ""
 
 func _process(delta):
 	print(in_area)
 	if Input.is_action_just_pressed("action") and in_area == 1:
-		$Label.text = "Funcionou!"
-		$Label.add_color_override("font_color", Color(0, 0, 0))
-	elif Input.is_action_just_released("action") and in_area == 1:
-		$Label.text = ""
+		$PopupMenu.popup()
+	elif in_area == 0:
+		$PopupMenu.visible = false

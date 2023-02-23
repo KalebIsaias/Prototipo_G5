@@ -1,26 +1,27 @@
 extends KinematicBody2D
 
+# variavel da velocidade do personagem
 export var speed : float = 100
+# variavel do personagem
 var motion = Vector2.ZERO
 
 func _physics_process(delta):
-	
+
 	#Movimentação
 	motion.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	motion.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 	motion = motion.normalized()
 	print(motion)
-	
-	#Ações
-	if Input.get_action_strength("action"):
-		$AnimatedSprite.play("colect")
+
 	#Aceleração
 	if Input.get_action_strength("aceleration"):
 		speed = 200
 	if Input.is_action_just_released("aceleration"):
 		speed = 100
-		
+
 	#Animação
+	if Input.get_action_strength("action"):
+		$AnimatedSprite.play("colect")
 
 	if Input.is_action_just_released("ui_left"):
 		$AnimatedSprite.play("idle_side")
