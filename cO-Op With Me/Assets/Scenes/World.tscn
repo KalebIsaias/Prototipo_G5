@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=2]
+[gd_scene load_steps=86 format=2]
 
 [ext_resource path="res://Assets/Prefab/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Prefab/Interface.tscn" type="PackedScene" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://Assets/Art/import/Tileset/outdoor.png" type="Texture" id=17]
 [ext_resource path="res://Assets/Art/Sprites Original/Tilemap/Room_Builder_16x16.png" type="Texture" id=18]
 [ext_resource path="res://Assets/Art/Sprites Original/NPC/atendente.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Art/import/Tileset/19_Hospital_16x16.png" type="Texture" id=20]
 
 [sub_resource type="TileSet" id=24]
 0/name = "Chão 1"
@@ -548,6 +549,21 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 [sub_resource type="ConvexPolygonShape2D" id=46]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 
+[sub_resource type="ConvexPolygonShape2D" id=83]
+points = PoolVector2Array( 0, 6.95702, 15.601, 6.95702, 15.601, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=84]
+points = PoolVector2Array( 0, 7.38901, 15.509, 7.38901, 15.509, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=85]
+points = PoolVector2Array( 0, 6.95702, 15.525, 6.95702, 15.525, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=86]
+points = PoolVector2Array( 0, 6.84901, 15.433, 6.84901, 15.433, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=87]
+points = PoolVector2Array( 0, 7.065, 15.449, 7.065, 15.449, 16, 0, 16 )
+
 [sub_resource type="ConvexPolygonShape2D" id=47]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 0, 0, 0 )
 
@@ -753,6 +769,36 @@ points = PoolVector2Array( 0, 21.5033, 11.6138, 21.5033, 11.6138, 48, 0, 48 )
 "one_way": false,
 "one_way_margin": 1.0,
 "shape": SubResource( 46 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 4, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 83 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 3, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 84 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 2, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 85 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 86 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 87 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 4/z_index = 0
@@ -961,6 +1007,34 @@ points = PoolVector2Array( 0, 21.5033, 11.6138, 21.5033, 11.6138, 48, 0, 48 )
 13/shape_one_way_margin = 0.0
 13/shapes = [  ]
 13/z_index = 0
+14/name = "19_Hospital_16x16.png 14"
+14/texture = ExtResource( 20 )
+14/tex_offset = Vector2( 0, 0 )
+14/modulate = Color( 1, 1, 1, 1 )
+14/region = Rect2( 16, 432, 16, 64 )
+14/tile_mode = 0
+14/occluder_offset = Vector2( 0, 0 )
+14/navigation_offset = Vector2( 0, 0 )
+14/shape_offset = Vector2( 0, 0 )
+14/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+14/shape_one_way = false
+14/shape_one_way_margin = 0.0
+14/shapes = [  ]
+14/z_index = 0
+15/name = "19_Hospital_16x16.png 15"
+15/texture = ExtResource( 20 )
+15/tex_offset = Vector2( 0, 0 )
+15/modulate = Color( 1, 1, 1, 1 )
+15/region = Rect2( 48, 336, 32, 32 )
+15/tile_mode = 0
+15/occluder_offset = Vector2( 0, 0 )
+15/navigation_offset = Vector2( 0, 0 )
+15/shape_offset = Vector2( 0, 0 )
+15/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+15/shape_one_way = false
+15/shape_one_way_margin = 0.0
+15/shapes = [  ]
+15/z_index = 0
 
 [sub_resource type="ConvexPolygonShape2D" id=40]
 points = PoolVector2Array( 0, 4.27936, 14.2002, 4.27936, 14.2002, 25.443, 0, 25.443 )
@@ -1493,7 +1567,6 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="NPCs/NPC_Client"]
 frames = SubResource( 63 )
 animation = "sit"
-frame = 5
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/NPC_Client"]
@@ -1511,6 +1584,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="NPCs/NPC_Chef"]
 frames = SubResource( 71 )
 animation = "chef_idle"
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/NPC_Chef"]
@@ -1533,6 +1607,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="NPCs/NPC_Atendente"]
 frames = SubResource( 81 )
 animation = "atendente_idle"
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/NPC_Atendente"]

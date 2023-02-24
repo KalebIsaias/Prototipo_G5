@@ -15,7 +15,7 @@ func _physics_process(delta):
 
 	#Aceleração
 	if Input.get_action_strength("aceleration"):
-		speed = 200
+		speed = 150
 	if Input.is_action_just_released("aceleration"):
 		speed = 100
 
