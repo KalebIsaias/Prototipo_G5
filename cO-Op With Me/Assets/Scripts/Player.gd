@@ -1,3 +1,4 @@
+# Script do jogador
 extends KinematicBody2D
 
 # variavel da velocidade do personagem
@@ -5,13 +6,12 @@ export var speed : float = 100
 # variavel do personagem
 var motion = Vector2.ZERO
 
-func _physics_process(delta):
+func _physics_process(_delta):
 
 	#Movimentação
 	motion.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	motion.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 	motion = motion.normalized()
-	print(motion)
 
 	#Aceleração
 	if Input.get_action_strength("aceleration"):
@@ -21,7 +21,7 @@ func _physics_process(delta):
 
 	#Animação
 	if Input.get_action_strength("action"):
-		$AnimatedSprite.play("colect")
+		$AnimatedSprite.play("colect_back")
 
 	if Input.is_action_just_released("ui_left"):
 		$AnimatedSprite.play("idle_side")
@@ -45,4 +45,4 @@ func _physics_process(delta):
 	elif Input.get_action_strength("ui_down"):
 		$AnimatedSprite.play("run_front")
 	
-	move_and_slide(motion * speed) * delta
+	move_and_slide(motion * speed)
