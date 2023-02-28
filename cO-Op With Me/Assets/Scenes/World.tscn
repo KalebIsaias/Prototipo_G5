@@ -1,18 +1,18 @@
-[gd_scene load_steps=87 format=2]
+[gd_scene load_steps=81 format=2]
 
 [ext_resource path="res://Assets/Prefab/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Prefab/Interface.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Prefab/NPC_chef.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Art/Sprites Original/Tilemap/TopDownHouse_FloorsAndWalls.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Scripts/NPC_chef.gd" type="Script" id=5]
 [ext_resource path="res://Assets/Art/Sprites Original/Tilemap/24_Ice_Cream_Shop.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Scripts/Geladeira.gd" type="Script" id=8]
 [ext_resource path="res://Assets/Art/Sprites Original/Tilemap/24_Ice_Cream_Shop (1).png" type="Texture" id=9]
 [ext_resource path="res://Assets/Art/Sprites Original/Tilemap/Cozinha_1.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Art/Sprites Original/NPC/NPC.CLIENTE2.png" type="Texture" id=11]
-[ext_resource path="res://Assets/Art/Sprites Original/NPC/NPC.CHEF.png" type="Texture" id=12]
 [ext_resource path="res://Assets/Art/Sprites Original/Tilemap/Room_Builder_Floors_16x16.png" type="Texture" id=13]
 [ext_resource path="res://Assets/Scripts/Batedeira.gd" type="Script" id=14]
 [ext_resource path="res://Assets/Scripts/World.gd" type="Script" id=15]
-[ext_resource path="res://Assets/Scripts/NPC_Chef.gd" type="Script" id=16]
 [ext_resource path="res://Assets/Art/import/Tileset/outdoor.png" type="Texture" id=17]
 [ext_resource path="res://Assets/Art/Sprites Original/Tilemap/Room_Builder_16x16.png" type="Texture" id=18]
 [ext_resource path="res://Assets/Art/Sprites Original/NPC/atendente.png" type="Texture" id=19]
@@ -1212,41 +1212,6 @@ animations = [ {
 [sub_resource type="CapsuleShape2D" id=64]
 height = 4.0
 
-[sub_resource type="AtlasTexture" id=90]
-atlas = ExtResource( 12 )
-region = Rect2( 0, 32, 16, 32 )
-
-[sub_resource type="AtlasTexture" id=91]
-atlas = ExtResource( 12 )
-region = Rect2( 16, 32, 16, 32 )
-
-[sub_resource type="AtlasTexture" id=92]
-atlas = ExtResource( 12 )
-region = Rect2( 32, 32, 16, 32 )
-
-[sub_resource type="AtlasTexture" id=93]
-atlas = ExtResource( 12 )
-region = Rect2( 48, 32, 16, 32 )
-
-[sub_resource type="AtlasTexture" id=94]
-atlas = ExtResource( 12 )
-region = Rect2( 64, 32, 16, 32 )
-
-[sub_resource type="AtlasTexture" id=95]
-atlas = ExtResource( 12 )
-region = Rect2( 80, 32, 16, 32 )
-
-[sub_resource type="SpriteFrames" id=71]
-animations = [ {
-"frames": [ SubResource( 90 ), SubResource( 91 ), SubResource( 92 ), SubResource( 93 ), SubResource( 94 ), SubResource( 95 ) ],
-"loop": true,
-"name": "chef_idle",
-"speed": 5.0
-} ]
-
-[sub_resource type="RectangleShape2D" id=72]
-extents = Vector2( 13, 12 )
-
 [sub_resource type="AtlasTexture" id=75]
 atlas = ExtResource( 19 )
 region = Rect2( 288, 32, 16, 32 )
@@ -1282,6 +1247,39 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=82]
 extents = Vector2( 24, 29 )
 
+[sub_resource type="GDScript" id=97]
+script/source = "# Script do npc Chef
+extends Area2D
+
+# Variável que diz se o jogador está na área de interação com o npc
+var in_area = 0
+
+
+func _on_NPC_Chef_body_entered(body):
+	# Condicional que diz se o jogador entrou na área de interação com o npc
+	if body.name == \"Player\":
+		in_area = 1
+
+func _on_NPC_Chef_body_exited(body):
+	# Condicional que diz se o jogador saiu na área de interação com o npc
+	if body.name == \"Player\":
+		in_area = 0
+
+func _process(_delta):
+	# Botão de interação com o NPC, só funciona se o jogador apertar o \"E\" e se ele estiver na área
+#	if Input.is_action_just_pressed(\"action\") and in_area == 1:
+#		$Label.text = \"Olá\"
+	
+	# Se ele sair da área o Label desaparece
+	if in_area == 0:
+		pass
+
+	
+"
+
+[sub_resource type="RectangleShape2D" id=98]
+extents = Vector2( 13, 12 )
+
 [sub_resource type="RectangleShape2D" id=18]
 extents = Vector2( 7.5, 7.5 )
 
@@ -1297,11 +1295,16 @@ extents = Vector2( 8.5, 10 )
 radius = 8.0
 
 [node name="Fase 1" type="Node2D"]
+position = Vector2( -2, 0 )
 script = ExtResource( 15 )
 
 [node name="Ui" type="CanvasLayer" parent="."]
 
 [node name="Interface" parent="Ui" instance=ExtResource( 2 )]
+margin_left = 4.0
+margin_top = 3.0
+margin_right = 4.0
+margin_bottom = 3.0
 
 [node name="Terrain" type="Node2D" parent="."]
 
@@ -1385,37 +1388,13 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="NPCs/NPC_Client"]
 frames = SubResource( 63 )
 animation = "sit"
-frame = 4
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/NPC_Client"]
 visible = false
 position = Vector2( 1, 5 )
 shape = SubResource( 64 )
-
-[node name="NPC_Chef" type="Area2D" parent="NPCs"]
-position = Vector2( 32, 118 )
-script = ExtResource( 16 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="NPCs/NPC_Chef"]
-frames = SubResource( 71 )
-animation = "chef_idle"
-frame = 2
-playing = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/NPC_Chef"]
-visible = false
-position = Vector2( 3, 12 )
-shape = SubResource( 72 )
-
-[node name="Label" type="Label" parent="NPCs/NPC_Chef"]
-margin_left = -8.0
-margin_top = -32.0
-margin_right = 32.0
-margin_bottom = -18.0
 
 [node name="NPC_Atendente" type="Area2D" parent="NPCs"]
 position = Vector2( 88, 200 )
@@ -1426,13 +1405,33 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="NPCs/NPC_Atendente"]
 frames = SubResource( 81 )
 animation = "atendente_idle"
-frame = 5
+frame = 4
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/NPC_Atendente"]
 visible = false
 position = Vector2( 0, 27 )
 shape = SubResource( 82 )
+
+[node name="NPC_chef" parent="NPCs" instance=ExtResource( 3 )]
+script = ExtResource( 5 )
+speed = 100.0
+
+[node name="NPC_Chef2" type="Area2D" parent="NPCs/NPC_chef"]
+position = Vector2( -3, -2 )
+script = SubResource( 97 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/NPC_chef/NPC_Chef2"]
+visible = false
+position = Vector2( 3, 12 )
+shape = SubResource( 98 )
+
+[node name="Label" type="Label" parent="NPCs/NPC_chef"]
+margin_right = 40.0
+margin_bottom = 14.0
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 128, 112 )
@@ -1567,8 +1566,8 @@ polygon = PoolVector2Array( 16, 104, 48, 104, 48, -8, 16, -8 )
 position = Vector2( 40, 40 )
 shape = SubResource( 74 )
 
-[connection signal="body_entered" from="NPCs/NPC_Chef" to="NPCs/NPC_Chef" method="_on_NPC_Chef_body_entered"]
-[connection signal="body_exited" from="NPCs/NPC_Chef" to="NPCs/NPC_Chef" method="_on_NPC_Chef_body_exited"]
+[connection signal="body_entered" from="NPCs/NPC_chef/NPC_Chef2" to="NPCs/NPC_chef" method="_on_NPC_Chef2_body_entered"]
+[connection signal="body_exited" from="NPCs/NPC_chef/NPC_Chef2" to="NPCs/NPC_chef" method="_on_NPC_Chef2_body_exited"]
 [connection signal="body_entered" from="Areas/Refrigerator" to="Areas/Refrigerator" method="_on_Refrigerator_body_entered"]
 [connection signal="body_exited" from="Areas/Refrigerator" to="Areas/Refrigerator" method="_on_Refrigerator_body_exited"]
 [connection signal="body_entered" from="Areas/Batedeira" to="Areas/Batedeira" method="_on_Batedeira_body_entered"]
