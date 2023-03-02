@@ -6,6 +6,7 @@
 [ext_resource path="res://Assets/Art/Sprites Original/Tilemap/TopDownHouse_FloorsAndWalls.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Scripts/NPC_chef.gd" type="Script" id=5]
 [ext_resource path="res://Assets/Art/Sprites Original/Tilemap/24_Ice_Cream_Shop.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Scenes/Fogão.gd" type="Script" id=7]
 [ext_resource path="res://Assets/Scripts/Geladeira.gd" type="Script" id=8]
 [ext_resource path="res://Assets/Art/Sprites Original/Tilemap/24_Ice_Cream_Shop (1).png" type="Texture" id=9]
 [ext_resource path="res://Assets/Art/Sprites Original/Tilemap/Cozinha_1.png" type="Texture" id=10]
@@ -1247,38 +1248,8 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=82]
 extents = Vector2( 24, 29 )
 
-[sub_resource type="GDScript" id=97]
-script/source = "# Script do npc Chef
-extends Area2D
-
-# Variável que diz se o jogador está na área de interação com o npc
-var in_area = 0
-
-
-func _on_NPC_Chef_body_entered(body):
-	# Condicional que diz se o jogador entrou na área de interação com o npc
-	if body.name == \"Player\":
-		in_area = 1
-
-func _on_NPC_Chef_body_exited(body):
-	# Condicional que diz se o jogador saiu na área de interação com o npc
-	if body.name == \"Player\":
-		in_area = 0
-
-func _process(_delta):
-	# Botão de interação com o NPC, só funciona se o jogador apertar o \"E\" e se ele estiver na área
-#	if Input.is_action_just_pressed(\"action\") and in_area == 1:
-#		$Label.text = \"Olá\"
-	
-	# Se ele sair da área o Label desaparece
-	if in_area == 0:
-		pass
-
-	
-"
-
-[sub_resource type="RectangleShape2D" id=98]
-extents = Vector2( 13, 12 )
+[sub_resource type="RectangleShape2D" id=97]
+extents = Vector2( 6.5, 6.5 )
 
 [sub_resource type="RectangleShape2D" id=18]
 extents = Vector2( 7.5, 7.5 )
@@ -1295,16 +1266,14 @@ extents = Vector2( 8.5, 10 )
 radius = 8.0
 
 [node name="Fase 1" type="Node2D"]
-position = Vector2( -2, 0 )
+position = Vector2( -1, 2 )
 script = ExtResource( 15 )
 
 [node name="Ui" type="CanvasLayer" parent="."]
 
 [node name="Interface" parent="Ui" instance=ExtResource( 2 )]
-margin_left = 4.0
-margin_top = 3.0
-margin_right = 4.0
-margin_bottom = 3.0
+margin_top = 8.0
+margin_bottom = 8.0
 
 [node name="Terrain" type="Node2D" parent="."]
 
@@ -1333,7 +1302,7 @@ position = Vector2( -8, 64 )
 tile_set = SubResource( 26 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( -131063, 13, 0, -131062, 13, 1, -131061, 13, 2, -65527, 13, 65536, -65526, 13, 65537, -65525, 13, 65538, 1, 2, 0, 2, 3, 1, 3, 3, 1, 4, 3, 1, 5, 3, 1, 6, 3, 1, 7, 3, 1, 8, 3, 1, 9, 3, 1, 10, 3, 1, 11, 3, 1, 12, 3, 1, 13, 3, 1, 14, 3, 2, 65537, 2, 65536, 65538, 1, 3, 65539, 1, 3, 65540, 1, 3, 65541, 1, 2, 65542, 1, 2, 65543, 1, 2, 65544, 1, 2, 65545, 1, 2, 65546, 1, 2, 65547, 1, 3, 65548, 1, 3, 65549, 1, 3, 65550, 1, 4, 131073, 2, 65536, 196609, 2, 131072, 262145, 1, 0, 393217, 11, 0, 393226, 11, 0, 393229, 10, 0, 589826, 4, 1, 589827, 4, 2, 589828, 4, 3, 589829, 4, 4, 589830, 4, 0, 589831, 4, 1, 589832, 4, 2, 589833, 4, 3, 589837, 6, 0, 655362, 5, 0, 655363, 5, 2, 655364, 5, 3, 655365, 5, 4, 655366, 5, 0, 655367, 5, 1, 655368, 5, 2, 655369, 5, 3, 786433, 8, 0, 786435, 9, 0, 786440, 8, 0, 786442, 9, 0, 851970, 7, 0, 851977, 7, 0 )
+tile_data = PoolIntArray( -131063, 13, 0, -131062, 13, 1, -131061, 13, 2, -65527, 13, 65536, -65526, 13, 65537, -65525, 13, 65538, 1, 2, 0, 2, 3, 1, 3, 3, 1, 4, 3, 1, 5, 3, 1, 6, 3, 1, 7, 3, 1, 8, 3, 1, 9, 3, 1, 10, 3, 1, 11, 3, 1, 12, 3, 1, 13, 3, 1, 14, 3, 2, 65537, 2, 65536, 65538, 1, 3, 65539, 1, 3, 65540, 1, 3, 65541, 1, 2, 65542, 1, 2, 65543, 1, 2, 65544, 1, 2, 65545, 1, 2, 65546, 1, 2, 65547, 1, 3, 65548, 1, 3, 65549, 1, 3, 65550, 1, 4, 131073, 2, 65536, 196609, 2, 131072, 196620, 14, 0, 196621, 14, 0, 262145, 1, 0, 262156, 14, 0, 262157, 14, 0, 327692, 14, 0, 327693, 14, 0, 327694, 14, 0, 327695, 14, 0, 393217, 11, 0, 393226, 11, 0, 393229, 10, 0, 589826, 4, 1, 589827, 4, 2, 589828, 4, 3, 589829, 4, 4, 589830, 4, 0, 589831, 4, 1, 589832, 4, 2, 589833, 4, 3, 589837, 6, 0, 655362, 5, 0, 655363, 5, 2, 655364, 5, 3, 655365, 5, 4, 655366, 5, 0, 655367, 5, 1, 655368, 5, 2, 655369, 5, 3, 655375, 14, 0, 720910, 14, 0, 720911, 14, 0, 786433, 8, 0, 786435, 9, 0, 786440, 8, 0, 786442, 9, 0, 851970, 7, 0, 851977, 7, 0 )
 
 [node name="Eletrodomésticos" type="TileMap" parent="Terrain"]
 position = Vector2( 0, 64 )
@@ -1348,7 +1317,7 @@ tile_set = SubResource( 43 )
 cell_size = Vector2( 16, 16 )
 cell_y_sort = true
 format = 1
-tile_data = PoolIntArray( -131069, 12, 0, -131068, 13, 0, -131059, 11, 0, -65525, 0, 0, -65523, 1, 0, 3, 3, 0, 4, 3, 0, 5, 3, 0, 393218, 5, 0, 393220, 7, 0, 393222, 7, 0, 393224, 4, 0, 458754, 5, 0, 458756, 6, 0, 458758, 6, 0, 458760, 4, 0 )
+tile_data = PoolIntArray( -131069, 12, 0, -131068, 13, 0, -131059, 11, 0, -65525, 0, 0, -65523, 1, 0, 3, 3, 0, 4, 3, 0, 5, 3, 0, 393218, 5, 0, 393220, 7, 0, 393222, 7, 0, 393224, 4, 0, 458754, 5, 0, 458756, 6, 0, 458758, 6, 0, 458760, 4, 0, 655367, 2, 0 )
 
 [node name="TileMap" type="TileMap" parent="Terrain/Objetos"]
 tile_set = SubResource( 43 )
@@ -1388,11 +1357,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="NPCs/NPC_Client"]
 frames = SubResource( 63 )
 animation = "sit"
-<<<<<<< HEAD
-frame = 1
-=======
-frame = 3
->>>>>>> f1585105b2324d7ee32e51bcd3e45122a7bd2d14
+frame = 4
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/NPC_Client"]
@@ -1400,33 +1365,6 @@ visible = false
 position = Vector2( 1, 5 )
 shape = SubResource( 64 )
 
-<<<<<<< HEAD
-[node name="NPC_Chef" type="Area2D" parent="NPCs"]
-position = Vector2( 32, 88 )
-script = ExtResource( 16 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="NPCs/NPC_Chef"]
-frames = SubResource( 71 )
-animation = "chef_idle"
-frame = 2
-playing = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/NPC_Chef"]
-visible = false
-position = Vector2( 3, 12 )
-shape = SubResource( 72 )
-
-[node name="Label" type="Label" parent="NPCs/NPC_Chef"]
-margin_left = -8.0
-margin_top = -32.0
-margin_right = 32.0
-margin_bottom = -18.0
-
-=======
->>>>>>> f1585105b2324d7ee32e51bcd3e45122a7bd2d14
 [node name="NPC_Atendente" type="Area2D" parent="NPCs"]
 position = Vector2( 88, 200 )
 __meta__ = {
@@ -1436,11 +1374,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="NPCs/NPC_Atendente"]
 frames = SubResource( 81 )
 animation = "atendente_idle"
-<<<<<<< HEAD
-frame = 2
-=======
-frame = 4
->>>>>>> f1585105b2324d7ee32e51bcd3e45122a7bd2d14
+frame = 5
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/NPC_Atendente"]
@@ -1450,32 +1384,28 @@ shape = SubResource( 82 )
 
 [node name="NPC_chef" parent="NPCs" instance=ExtResource( 3 )]
 script = ExtResource( 5 )
-speed = 100.0
 
-[node name="NPC_Chef2" type="Area2D" parent="NPCs/NPC_chef"]
-position = Vector2( -3, -2 )
-script = SubResource( 97 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/NPC_chef/NPC_Chef2"]
-visible = false
-position = Vector2( 3, 12 )
-shape = SubResource( 98 )
+[node name="CollisionShape2D" parent="NPCs/NPC_chef" index="0"]
+position = Vector2( 0.999999, 8 )
 
 [node name="Label" type="Label" parent="NPCs/NPC_chef"]
-margin_right = 40.0
-margin_bottom = 14.0
+margin_left = 17.0
+margin_top = 16.0
+margin_right = 57.0
+margin_bottom = 30.0
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 128, 112 )
+position = Vector2( 135, 113 )
 __meta__ = {
 "_edit_group_": true,
 "_editor_description_": "		"
 }
 
+[node name="AnimatedSprite" parent="Player" index="0"]
+frame = 4
+
 [node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2( 1, 0 )
 current = true
 process_mode = 0
 limit_left = 4
@@ -1522,7 +1452,13 @@ format = 1
 tile_data = PoolIntArray( 851976, 9, 0, 917512, 10, 0 )
 
 [node name="Areas" type="Node2D" parent="."]
-visible = false
+
+[node name="Fogão" type="Area2D" parent="Areas"]
+script = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Fogão"]
+position = Vector2( 152, 96 )
+shape = SubResource( 97 )
 
 [node name="Refrigerator" type="Area2D" parent="Areas"]
 position = Vector2( 104, 72 )
@@ -1601,8 +1537,7 @@ polygon = PoolVector2Array( 16, 104, 48, 104, 48, -8, 16, -8 )
 position = Vector2( 40, 40 )
 shape = SubResource( 74 )
 
-[connection signal="body_entered" from="NPCs/NPC_chef/NPC_Chef2" to="NPCs/NPC_chef" method="_on_NPC_Chef2_body_entered"]
-[connection signal="body_exited" from="NPCs/NPC_chef/NPC_Chef2" to="NPCs/NPC_chef" method="_on_NPC_Chef2_body_exited"]
+[connection signal="body_entered" from="Areas/Fogão" to="Areas/Fogão" method="_on_Fogo_body_entered"]
 [connection signal="body_entered" from="Areas/Refrigerator" to="Areas/Refrigerator" method="_on_Refrigerator_body_entered"]
 [connection signal="body_exited" from="Areas/Refrigerator" to="Areas/Refrigerator" method="_on_Refrigerator_body_exited"]
 [connection signal="body_entered" from="Areas/Batedeira" to="Areas/Batedeira" method="_on_Batedeira_body_entered"]
@@ -1611,3 +1546,6 @@ shape = SubResource( 74 )
 [connection signal="body_exited" from="Areas/Armario" to="Areas/Armario" method="_on_Armario_body_exited"]
 [connection signal="body_entered" from="Areas/Micro-ondas" to="Areas/Micro-ondas" method="_on_Microondas_body_entered"]
 [connection signal="body_exited" from="Areas/Micro-ondas" to="Areas/Micro-ondas" method="_on_Microondas_body_exited"]
+
+[editable path="NPCs/NPC_chef"]
+[editable path="Player"]

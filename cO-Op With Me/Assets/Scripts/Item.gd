@@ -27,4 +27,9 @@ func _process(delta):
 		$Chocolate.visible = true
 	elif Global.pegou_choco == 0:
 		$Chocolate.visible = false
+	if Global.pegou_massa == 1:
+		$Massa.texture = load("res://Massa de bolo.png")
+		$Massa.visible = true
+	elif Global.pegou_massa == 0:
+		$Massa.visible = false
 
