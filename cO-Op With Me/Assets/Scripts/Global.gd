@@ -18,3 +18,4 @@ var tem_leite: int = 1
 var tem_choco: int = 1
 var tem_massa: int = 1
 
+#easter-egg

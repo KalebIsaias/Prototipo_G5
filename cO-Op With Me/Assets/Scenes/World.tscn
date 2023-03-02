@@ -1357,7 +1357,11 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="NPCs/NPC_Client"]
 frames = SubResource( 63 )
 animation = "sit"
+<<<<<<< Updated upstream
 frame = 4
+=======
+frame = 5
+>>>>>>> Stashed changes
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/NPC_Client"]
@@ -1374,7 +1378,10 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="NPCs/NPC_Atendente"]
 frames = SubResource( 81 )
 animation = "atendente_idle"
+<<<<<<< Updated upstream
 frame = 5
+=======
+>>>>>>> Stashed changes
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/NPC_Atendente"]
@@ -1387,6 +1394,12 @@ script = ExtResource( 5 )
 
 [node name="CollisionShape2D" parent="NPCs/NPC_chef" index="0"]
 position = Vector2( 0.999999, 8 )
+<<<<<<< Updated upstream
+=======
+
+[node name="AnimatedSprite" parent="NPCs/NPC_chef/Path2D/PathFollow2D" index="0"]
+frame = 5
+>>>>>>> Stashed changes
 
 [node name="Label" type="Label" parent="NPCs/NPC_chef"]
 margin_left = 17.0
@@ -1402,7 +1415,11 @@ __meta__ = {
 }
 
 [node name="AnimatedSprite" parent="Player" index="0"]
+<<<<<<< Updated upstream
 frame = 4
+=======
+frame = 5
+>>>>>>> Stashed changes
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2( 1, 0 )
