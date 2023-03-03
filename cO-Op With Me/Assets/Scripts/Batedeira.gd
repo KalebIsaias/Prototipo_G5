@@ -33,4 +33,12 @@ func _process(_delta):
 		Global.hide_slot = 0
 		Global.pegou_choco = 0
 		Global.tem_choco = 0
+		$Timer.start()
 
+
+
+func _on_Timer_timeout():
+	Global.apareceu_not = 1
+	if Input.is_action_just_pressed("action") and Global.tem_massa == 1:
+		Global.hide_slot = 1
+		Global.pegou_massa = 1

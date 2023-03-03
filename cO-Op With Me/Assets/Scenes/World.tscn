@@ -1249,18 +1249,19 @@ animations = [ {
 extents = Vector2( 24, 29 )
 
 [sub_resource type="RectangleShape2D" id=97]
-extents = Vector2( 6.5, 6.5 )
+extents = Vector2( 6.5, 3.75 )
 
 [sub_resource type="RectangleShape2D" id=18]
-extents = Vector2( 7.5, 7.5 )
+extents = Vector2( 7.5, 5.25 )
 
 [sub_resource type="RectangleShape2D" id=88]
+extents = Vector2( 10, 7.5 )
 
 [sub_resource type="RectangleShape2D" id=89]
-extents = Vector2( 7.5, 10 )
+extents = Vector2( 7.5, 7.5 )
 
 [sub_resource type="RectangleShape2D" id=96]
-extents = Vector2( 8.5, 10 )
+extents = Vector2( 8.5, 7 )
 
 [sub_resource type="CircleShape2D" id=74]
 radius = 8.0
@@ -1272,7 +1273,9 @@ script = ExtResource( 15 )
 [node name="Ui" type="CanvasLayer" parent="."]
 
 [node name="Interface" parent="Ui" instance=ExtResource( 2 )]
+margin_left = 2.0
 margin_top = 8.0
+margin_right = 2.0
 margin_bottom = 8.0
 
 [node name="Terrain" type="Node2D" parent="."]
@@ -1357,11 +1360,6 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="NPCs/NPC_Client"]
 frames = SubResource( 63 )
 animation = "sit"
-<<<<<<< Updated upstream
-frame = 4
-=======
-frame = 5
->>>>>>> Stashed changes
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/NPC_Client"]
@@ -1378,10 +1376,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="NPCs/NPC_Atendente"]
 frames = SubResource( 81 )
 animation = "atendente_idle"
-<<<<<<< Updated upstream
-frame = 5
-=======
->>>>>>> Stashed changes
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/NPC_Atendente"]
@@ -1394,12 +1389,9 @@ script = ExtResource( 5 )
 
 [node name="CollisionShape2D" parent="NPCs/NPC_chef" index="0"]
 position = Vector2( 0.999999, 8 )
-<<<<<<< Updated upstream
-=======
 
-[node name="AnimatedSprite" parent="NPCs/NPC_chef/Path2D/PathFollow2D" index="0"]
-frame = 5
->>>>>>> Stashed changes
+[node name="AnimatedSprite" parent="NPCs/NPC_chef" index="1"]
+frame = 3
 
 [node name="Label" type="Label" parent="NPCs/NPC_chef"]
 margin_left = 17.0
@@ -1415,11 +1407,7 @@ __meta__ = {
 }
 
 [node name="AnimatedSprite" parent="Player" index="0"]
-<<<<<<< Updated upstream
-frame = 4
-=======
-frame = 5
->>>>>>> Stashed changes
+frame = 0
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2( 1, 0 )
@@ -1474,7 +1462,7 @@ tile_data = PoolIntArray( 851976, 9, 0, 917512, 10, 0 )
 script = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Fogão"]
-position = Vector2( 152, 96 )
+position = Vector2( 152, 93.25 )
 shape = SubResource( 97 )
 
 [node name="Refrigerator" type="Area2D" parent="Areas"]
@@ -1485,7 +1473,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Refrigerator"]
-position = Vector2( 16, 22 )
+position = Vector2( 16, 19.75 )
 shape = SubResource( 18 )
 
 [node name="Batedeira" type="Area2D" parent="Areas"]
@@ -1495,8 +1483,12 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Batedeira"]
-position = Vector2( 207, 91 )
+position = Vector2( 207, 88.5 )
 shape = SubResource( 88 )
+
+[node name="Timer" type="Timer" parent="Areas/Batedeira"]
+wait_time = 2.0
+one_shot = true
 
 [node name="Armario" type="Area2D" parent="Areas"]
 script = ExtResource( 21 )
@@ -1505,7 +1497,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Armario"]
-position = Vector2( 64, 90 )
+position = Vector2( 64, 87.5 )
 shape = SubResource( 89 )
 
 [node name="Micro-ondas" type="Area2D" parent="Areas"]
@@ -1516,7 +1508,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Micro-ondas"]
-position = Vector2( -1.5, 0 )
+position = Vector2( -1.5, -3 )
 shape = SubResource( 96 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Areas"]
@@ -1559,6 +1551,7 @@ shape = SubResource( 74 )
 [connection signal="body_exited" from="Areas/Refrigerator" to="Areas/Refrigerator" method="_on_Refrigerator_body_exited"]
 [connection signal="body_entered" from="Areas/Batedeira" to="Areas/Batedeira" method="_on_Batedeira_body_entered"]
 [connection signal="body_exited" from="Areas/Batedeira" to="Areas/Batedeira" method="_on_Batedeira_body_exited"]
+[connection signal="timeout" from="Areas/Batedeira/Timer" to="Areas/Batedeira" method="_on_Timer_timeout"]
 [connection signal="body_entered" from="Areas/Armario" to="Areas/Armario" method="_on_Armario_body_entered"]
 [connection signal="body_exited" from="Areas/Armario" to="Areas/Armario" method="_on_Armario_body_exited"]
 [connection signal="body_entered" from="Areas/Micro-ondas" to="Areas/Micro-ondas" method="_on_Microondas_body_entered"]

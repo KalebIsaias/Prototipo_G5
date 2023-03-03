@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/Art/Interface/ovo.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Art/Interface/item_slot_default_background.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Scripts/Item.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Art/Interface/chocolate.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Art/Interface/trigo.png" type="Texture" id=5]
-[ext_resource path="res://icon.png" type="Texture" id=6]
-[ext_resource path="res://Massa de bolo.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Art/Interface/Massa de bolo.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Art/Interface/leite_do_lauro.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Art/Interface/Notificação.png" type="Texture" id=8]
 
 [node name="Item" type="TextureRect"]
 margin_left = 2.0
@@ -34,12 +35,12 @@ rect_scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 5 )
 
 [node name="Leite" type="TextureRect" parent="."]
-margin_left = 3.0
-margin_top = 4.0
-margin_right = 237.0
-margin_bottom = 105.0
-rect_scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 6 )
+margin_left = 4.00001
+margin_top = 3.0
+margin_right = 238.0
+margin_bottom = 104.0
+rect_scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 7 )
 
 [node name="Chocolate" type="TextureRect" parent="."]
 margin_left = 3.0
@@ -56,4 +57,12 @@ margin_top = 4.0
 margin_right = 68.0
 margin_bottom = 68.0
 rect_scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 7 )
+texture = ExtResource( 6 )
+
+[node name="Notificação" type="TextureRect" parent="."]
+margin_left = 194.0
+margin_top = 40.0
+margin_right = 258.0
+margin_bottom = 104.0
+rect_scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 8 )
