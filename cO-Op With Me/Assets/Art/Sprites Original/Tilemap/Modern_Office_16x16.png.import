@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/icon.png-f30b35fc1a490d2a757a1a51ee7a0c9d.stex"
+path="res://.import/Modern_Office_16x16.png-c832965261eb3ea4cd8ba321abef2967.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Interface/icon.png"
-dest_files=[ "res://.import/icon.png-f30b35fc1a490d2a757a1a51ee7a0c9d.stex" ]
+source_file="res://Assets/Art/Sprites Original/Tilemap/Modern_Office_16x16.png"
+dest_files=[ "res://.import/Modern_Office_16x16.png-c832965261eb3ea4cd8ba321abef2967.stex" ]
 
 [params]
 
