@@ -10,11 +10,23 @@ var pegou_trigo: int = 0
 var pegou_leite: int = 0
 var pegou_choco: int = 0
 var pegou_massa: int = 0
-var apareceu_not:int = 0
+var pegou_tabuleiro: int = 0
+var pegou_bolo_assado: int = 0
 
 var tem_ovo: int = 1
 var tem_trigo: int = 1
 var tem_leite: int = 1
 var tem_choco: int = 1
 var tem_massa: int = 1
+var tem_tabuleiro: int = 1
+var tem_bolo_assado: int = 1
+
+#Variáveis globais das notificações
+var apareceu_not_massa:int = 0
+var apareceu_not_bolo:int = 0
+
+#Variáveis globais do chat
+var chat = 1
+
+
 

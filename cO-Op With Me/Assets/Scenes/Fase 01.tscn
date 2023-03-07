@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=2]
+[gd_scene load_steps=85 format=2]
 
 [ext_resource path="res://Assets/Prefab/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Prefab/NPC_chef.tscn" type="PackedScene" id=2]
@@ -19,6 +19,8 @@
 [ext_resource path="res://Assets/Art/import/Tileset/outdoor.png" type="Texture" id=17]
 [ext_resource path="res://Assets/Art/Sprites Original/Tilemap/Room_Builder_16x16.png" type="Texture" id=18]
 [ext_resource path="res://Assets/Art/Sprites Original/NPC/atendente.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Scripts/Bancada.gd" type="Script" id=20]
+[ext_resource path="res://Assets/Prefab/Control.tscn" type="PackedScene" id=21]
 
 [sub_resource type="TileSet" id=24]
 3/name = "Chão p.1"
@@ -1266,6 +1268,17 @@ extents = Vector2( 8.5, 7 )
 [sub_resource type="CircleShape2D" id=74]
 radius = 8.0
 
+[sub_resource type="RectangleShape2D" id=98]
+extents = Vector2( 5.5, 6 )
+
+[sub_resource type="GDScript" id=99]
+script/source = "extends Control
+
+
+func _ready():
+	pass
+"
+
 [node name="Fase 1" type="Node2D"]
 position = Vector2( -1, 2 )
 script = ExtResource( 15 )
@@ -1273,9 +1286,9 @@ script = ExtResource( 15 )
 [node name="Ui" type="CanvasLayer" parent="."]
 
 [node name="Interface" parent="Ui" instance=ExtResource( 3 )]
-margin_left = 6.0
+margin_left = 2.0
 margin_top = 13.0
-margin_right = 6.0
+margin_right = 2.0
 margin_bottom = 13.0
 
 [node name="Terrain" type="Node2D" parent="."]
@@ -1320,7 +1333,7 @@ tile_set = SubResource( 43 )
 cell_size = Vector2( 16, 16 )
 cell_y_sort = true
 format = 1
-tile_data = PoolIntArray( -131069, 12, 0, -131068, 13, 0, -131059, 11, 0, -65525, 0, 0, -65523, 1, 0, 3, 3, 0, 4, 3, 0, 5, 3, 0, 393218, 5, 0, 393220, 7, 0, 393222, 7, 0, 393224, 4, 0, 458754, 5, 0, 458756, 6, 0, 458758, 6, 0, 458760, 4, 0, 655367, 2, 0 )
+tile_data = PoolIntArray( -131069, 12, 0, -131068, 13, 0, -131059, 11, 0, -65525, 0, 0, -65523, 1, 0, 3, 3, 0, 4, 3, 0, 5, 3, 0, 393218, 5, 0, 393220, 7, 0, 393222, 7, 0, 393224, 4, 0, 458754, 5, 0, 458756, 6, 0, 458758, 6, 0, 458760, 4, 0 )
 
 [node name="TileMap" type="TileMap" parent="Terrain/Objetos"]
 tile_set = SubResource( 43 )
@@ -1389,11 +1402,11 @@ shape = SubResource( 82 )
 script = ExtResource( 5 )
 
 [node name="CollisionShape2D" parent="NPCs/NPC_chef" index="0"]
-position = Vector2( 9, -11 )
+position = Vector2( 12, 10 )
 
 [node name="AnimatedSprite" parent="NPCs/NPC_chef" index="1"]
-position = Vector2( 9, -21 )
-frame = 0
+position = Vector2( 12, 3 )
+frame = 2
 
 [node name="Label" type="Label" parent="NPCs/NPC_chef"]
 margin_left = 17.0
@@ -1407,6 +1420,9 @@ __meta__ = {
 "_edit_group_": true,
 "_editor_description_": "		"
 }
+
+[node name="AnimatedSprite" parent="Player" index="0"]
+frame = 2
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2( 1, 0 )
@@ -1443,7 +1459,7 @@ tile_set = SubResource( 43 )
 cell_size = Vector2( 16, 16 )
 cell_y_sort = true
 format = 1
-tile_data = PoolIntArray( 589826, 8, 0, 589827, 8, 1, 589828, 8, 1, 589829, 8, 1, 589830, 8, 1, 589831, 8, 1, 589832, 8, 1, 589833, 8, 1, 655362, 8, 65536, 655363, 8, 65537, 655364, 8, 65537, 655365, 8, 65537, 655366, 8, 65537, 655367, 8, 65537, 655368, 8, 65537 )
+tile_data = PoolIntArray( 589826, 8, 0, 589827, 8, 1, 589828, 8, 1, 589829, 8, 1, 589830, 8, 1, 589831, 8, 1, 589832, 8, 1, 589833, 8, 1, 655362, 8, 65536, 655363, 8, 65537, 655364, 8, 65537, 655365, 8, 65537, 655366, 8, 65537, 655368, 8, 65537 )
 
 [node name="Terrarin 4" type="Node2D" parent="."]
 
@@ -1464,12 +1480,11 @@ script = ExtResource( 7 )
 position = Vector2( 152, 93.25 )
 shape = SubResource( 97 )
 
+[node name="Timer" type="Timer" parent="Areas/Fogão"]
+
 [node name="Refrigerator" type="Area2D" parent="Areas"]
 position = Vector2( 104, 72 )
 script = ExtResource( 8 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Refrigerator"]
 position = Vector2( 16, 19.75 )
@@ -1545,7 +1560,19 @@ polygon = PoolVector2Array( 16, 104, 48, 104, 48, -8, 16, -8 )
 position = Vector2( 40, 40 )
 shape = SubResource( 74 )
 
+[node name="Bancada" type="Area2D" parent="Areas"]
+script = ExtResource( 20 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Bancada"]
+position = Vector2( 29, 123 )
+shape = SubResource( 98 )
+
+[node name="Caixa de texto" parent="." instance=ExtResource( 21 )]
+script = SubResource( 99 )
+
 [connection signal="body_entered" from="Areas/Fogão" to="Areas/Fogão" method="_on_Fogo_body_entered"]
+[connection signal="body_exited" from="Areas/Fogão" to="Areas/Bancada" method="_on_Fogo_body_exited"]
+[connection signal="timeout" from="Areas/Fogão/Timer" to="Areas/Fogão" method="_on_Timer_timeout"]
 [connection signal="body_entered" from="Areas/Refrigerator" to="Areas/Refrigerator" method="_on_Refrigerator_body_entered"]
 [connection signal="body_exited" from="Areas/Refrigerator" to="Areas/Refrigerator" method="_on_Refrigerator_body_exited"]
 [connection signal="body_entered" from="Areas/Batedeira" to="Areas/Batedeira" method="_on_Batedeira_body_entered"]
@@ -1555,6 +1582,8 @@ shape = SubResource( 74 )
 [connection signal="body_exited" from="Areas/Armario" to="Areas/Armario" method="_on_Armario_body_exited"]
 [connection signal="body_entered" from="Areas/Micro-ondas" to="Areas/Micro-ondas" method="_on_Microondas_body_entered"]
 [connection signal="body_exited" from="Areas/Micro-ondas" to="Areas/Micro-ondas" method="_on_Microondas_body_exited"]
+[connection signal="body_entered" from="Areas/Bancada" to="Areas/Bancada" method="_on_Bancada_body_entered"]
+[connection signal="body_exited" from="Areas/Bancada" to="Areas/Bancada" method="_on_Bancada_body_exited"]
 
 [editable path="NPCs/NPC_chef"]
 [editable path="Player"]

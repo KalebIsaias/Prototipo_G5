@@ -114,13 +114,12 @@ animations = [ {
 position = Vector2( 32, 118 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 4.00001, 5 )
+position = Vector2( 14, 12 )
 shape = SubResource( 133 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 12.6051, 4.13895 )
 rotation = -0.0331005
 frames = SubResource( 71 )
-animation = "cook_back"
-frame = 1
-playing = true
+animation = "chef_run"
+frame = 3
