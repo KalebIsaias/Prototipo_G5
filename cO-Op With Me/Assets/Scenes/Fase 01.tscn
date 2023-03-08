@@ -21,6 +21,7 @@
 [ext_resource path="res://Assets/Art/Sprites Original/NPC/atendente.png" type="Texture" id=19]
 [ext_resource path="res://Assets/Scripts/Bancada.gd" type="Script" id=20]
 [ext_resource path="res://Assets/Prefab/Control.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Assets/Art/Interface/Tabuleiro vazio.png" type="Texture" id=22]
 
 [sub_resource type="TileSet" id=24]
 3/name = "Chão p.1"
@@ -1271,14 +1272,6 @@ radius = 8.0
 [sub_resource type="RectangleShape2D" id=98]
 extents = Vector2( 5.5, 6 )
 
-[sub_resource type="GDScript" id=99]
-script/source = "extends Control
-
-
-func _ready():
-	pass
-"
-
 [node name="Fase 1" type="Node2D"]
 position = Vector2( -1, 2 )
 script = ExtResource( 15 )
@@ -1286,10 +1279,10 @@ script = ExtResource( 15 )
 [node name="Ui" type="CanvasLayer" parent="."]
 
 [node name="Interface" parent="Ui" instance=ExtResource( 3 )]
-margin_left = 2.0
-margin_top = 13.0
-margin_right = 2.0
-margin_bottom = 13.0
+margin_left = 1.0
+margin_top = 22.0
+margin_right = 1.0
+margin_bottom = 22.0
 
 [node name="Terrain" type="Node2D" parent="."]
 
@@ -1373,7 +1366,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="NPCs/NPC_Client"]
 frames = SubResource( 63 )
 animation = "sit"
-frame = 5
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/NPC_Client"]
@@ -1390,6 +1383,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="NPCs/NPC_Atendente"]
 frames = SubResource( 81 )
 animation = "atendente_idle"
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/NPC_Atendente"]
@@ -1401,10 +1395,10 @@ shape = SubResource( 82 )
 script = ExtResource( 5 )
 
 [node name="CollisionShape2D" parent="NPCs/NPC_chef" index="0"]
-position = Vector2( 12, 10 )
+position = Vector2( 188, 12 )
 
 [node name="AnimatedSprite" parent="NPCs/NPC_chef" index="1"]
-position = Vector2( 12, 3 )
+position = Vector2( 189, 5 )
 frame = 2
 
 [node name="Label" type="Label" parent="NPCs/NPC_chef"]
@@ -1419,6 +1413,9 @@ __meta__ = {
 "_edit_group_": true,
 "_editor_description_": "		"
 }
+
+[node name="AnimatedSprite" parent="Player" index="0"]
+frame = 1
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2( 1, 0 )
@@ -1563,8 +1560,13 @@ script = ExtResource( 20 )
 position = Vector2( 29, 123 )
 shape = SubResource( 98 )
 
+[node name="TabuleiroVazio" type="Sprite" parent="."]
+position = Vector2( 17, 114 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 22 )
+
 [node name="Caixa de texto" parent="." instance=ExtResource( 21 )]
-script = SubResource( 99 )
+visible = false
 
 [connection signal="body_entered" from="Areas/Fogão" to="Areas/Fogão" method="_on_Fogo_body_entered"]
 [connection signal="body_exited" from="Areas/Fogão" to="Areas/Bancada" method="_on_Fogo_body_exited"]

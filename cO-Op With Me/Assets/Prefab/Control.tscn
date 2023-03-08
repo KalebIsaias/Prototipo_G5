@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/Art/Interface/CHAT.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Art/Interface/fonte/classic_memesbruh03.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://Assets/Chat.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Scripts/Chat.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Art/Interface/Laura.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Art/Interface/Atendente.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Art/Interface/robo.png" type="Texture" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 2 )
@@ -20,9 +21,9 @@ margin_bottom = 28.0
 
 [node name="Chat" type="TextureRect" parent="."]
 margin_left = -2.0
-margin_top = -21.0
+margin_top = -14.0
 margin_right = 98.0
-margin_bottom = 79.0
+margin_bottom = 86.0
 rect_scale = Vector2( 3.25, 2.25 )
 texture = ExtResource( 1 )
 script = ExtResource( 3 )
@@ -30,10 +31,10 @@ script = ExtResource( 3 )
 [node name="Context" type="Label" parent="Chat"]
 visible = false
 modulate = Color( 0, 0, 0, 1 )
-margin_left = 2.0
-margin_top = 43.0
-margin_right = 475.0
-margin_bottom = 108.0
+margin_left = 2.46154
+margin_top = 37.3333
+margin_right = 482.462
+margin_bottom = 104.333
 rect_scale = Vector2( 0.2, 0.27 )
 theme = SubResource( 2 )
 text = "  Olá  (nome do player)! Eu sou o (nome do robô), o robô do
@@ -45,10 +46,10 @@ text = "  Olá  (nome do player)! Eu sou o (nome do robô), o robô do
 [node name="Context2" type="Label" parent="Chat"]
 visible = false
 modulate = Color( 0, 0, 0, 1 )
-margin_left = 2.0
-margin_top = 43.0
-margin_right = 475.0
-margin_bottom = 108.0
+margin_left = 1.84615
+margin_top = 37.7778
+margin_right = 481.846
+margin_bottom = 102.778
 rect_scale = Vector2( 0.2, 0.27 )
 theme = SubResource( 2 )
 text = "  Nada como o bom cotidiano para aprender. Para isso, você
@@ -57,27 +58,25 @@ text = "  Nada como o bom cotidiano para aprender. Para isso, você
   Pressione Enter"
 
 [node name="Mecanica" type="Label" parent="Chat"]
-visible = false
 modulate = Color( 0, 0, 0, 1 )
-margin_left = 2.0
-margin_top = 43.0
-margin_right = 475.0
-margin_bottom = 108.0
+margin_left = 1.53846
+margin_top = 38.2222
+margin_right = 481.538
+margin_bottom = 105.222
 rect_scale = Vector2( 0.2, 0.27 )
 theme = SubResource( 2 )
 text = "  Para se mover, você tem duas opções: 
  as setas de direita, esquerda, cima e baixo do teclado, ou
  as letras W, A, S e D. Para pegar e soltar objetos ou 
-interagir com outros personagens, você deve usar a letra E. 
+ interagir com outros personagens, você deve usar a letra E. 
   Pressione Enter"
 
 [node name="Fim_context" type="Label" parent="Chat"]
-visible = false
 modulate = Color( 0, 0, 0, 1 )
-margin_left = 2.0
-margin_top = 43.0
-margin_right = 475.0
-margin_bottom = 108.0
+margin_left = 2.15385
+margin_top = 38.6667
+margin_right = 475.154
+margin_bottom = 103.667
 rect_scale = Vector2( 0.2, 0.27 )
 theme = SubResource( 2 )
 text = "
@@ -86,7 +85,6 @@ text = "
   Pressione Enter"
 
 [node name="Pedido" type="Label" parent="Chat"]
-visible = false
 modulate = Color( 0, 0, 0, 1 )
 margin_left = 2.0
 margin_top = 43.0
@@ -101,7 +99,6 @@ text = "  Olá, boa tarde! Eu sou Laura e gostaria de encomendar um
   Pressione Enter"
 
 [node name="Pedido2" type="Label" parent="Chat"]
-visible = false
 modulate = Color( 0, 0, 0, 1 )
 margin_left = 2.0
 margin_top = 43.0
@@ -143,3 +140,11 @@ margin_right = 19.6923
 margin_bottom = 104.556
 rect_scale = Vector2( 0.5, 0.65 )
 texture = ExtResource( 5 )
+
+[node name="Robo" type="TextureRect" parent="Chat"]
+margin_left = 80.3077
+margin_top = 8.0
+margin_right = 158.308
+margin_bottom = 86.0
+rect_scale = Vector2( 0.3, 0.39 )
+texture = ExtResource( 6 )

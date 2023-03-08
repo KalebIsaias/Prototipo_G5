@@ -20,11 +20,13 @@ func _process(delta):
 		Global.tem_massa = 0
 		$Timer.start()
 
-	if Input.is_action_just_pressed("action") and in_area == 1 and Global.apareceu_not_bolo == 1 and Global.tem_bolo_assado == 1:
+	if Input.is_action_just_pressed("action") and in_area == 1 and Global.tem_bolo_assado == 1 and Global.tem_massa == 0:
 		Global.hide_slot = 1
 		Global.pegou_bolo_assado = 1
 		#Global.apareceu_not_bolo = 0
 
 #func _on_Timer_timeout():
 #	Global.apareceu_not_bolo = 1
+
+# and Global.apareceu_not_bolo == 1 
 	

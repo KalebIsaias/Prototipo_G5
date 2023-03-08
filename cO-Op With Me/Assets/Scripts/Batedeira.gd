@@ -34,7 +34,7 @@ func _process(_delta):
 		Global.pegou_choco = 0
 		Global.tem_choco = 0
 		$Timer.start()
-	if Input.is_action_just_pressed("action") and in_area == 1 and Global.apareceu_not_massa == 1 and Global.tem_tabuleiro == 0 and Global.tem_massa == 1:
+	if Input.is_action_just_pressed("action") and in_area == 1 and Global.tem_tabuleiro == 0 and Global.pegou_tabuleiro == 1 and Global.tem_massa == 1:
 		Global.hide_slot = 1
 		Global.pegou_massa = 1
 		Global.pegou_tabuleiro = 0
@@ -42,3 +42,6 @@ func _process(_delta):
 
 #func _on_Timer_timeout():
 #	Global.apareceu_not_massa = 1
+
+
+# and Global.apareceu_not_massa == 1

@@ -16,7 +16,7 @@ func _process(delta):
 	elif Global.pegou_ovo == 0:
 		$Ovo.visible = false
 	if Global.pegou_leite == 1:
-		$Leite.texture = load("res://Assets/Art/Interface/leite_do_lauro.png")
+		$Leite.texture = load("res://Assets/Art/Interface/milk.png")
 		$Leite.visible = true
 	elif Global.pegou_leite == 0:
 		$Leite.visible = false

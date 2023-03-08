@@ -6,7 +6,7 @@
 [ext_resource path="res://Assets/Art/Interface/chocolate.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Art/Interface/trigo.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Art/Interface/Massa.png" type="Texture" id=6]
-[ext_resource path="res://Assets/Art/Interface/leite_do_lauro.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Art/Interface/milk.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Art/Interface/Bolo assado.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Art/Interface/Tabuleiro vazio.png" type="Texture" id=10]
 
@@ -27,14 +27,6 @@ margin_right = 37.0
 margin_bottom = 38.0
 rect_scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 5 )
-
-[node name="Leite" type="TextureRect" parent="."]
-margin_left = 4.0
-margin_top = 4.0
-margin_right = 35.0
-margin_bottom = 45.0
-rect_scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 7 )
 
 [node name="Chocolate" type="TextureRect" parent="."]
 margin_left = 3.0
@@ -69,9 +61,17 @@ rect_rotation = 0.403258
 rect_scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 10 )
 
+[node name="Leite" type="TextureRect" parent="."]
+margin_left = 2.0
+margin_top = -2.0
+margin_right = 34.0
+margin_bottom = 39.0
+rect_scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 7 )
+
 [node name="Massa" type="TextureRect" parent="."]
-margin_left = -2.0
-margin_top = -1.0
+margin_left = -1.99998
+margin_top = -0.999996
 margin_right = 28.0
 margin_bottom = 28.0
 rect_scale = Vector2( 0.8, 0.8 )
