@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=2]
+[gd_scene load_steps=61 format=2]
 
 [ext_resource path="res://Assets/Art/Sprites Original/Tilemap/Room_Builder_16x16.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Art/Sprites Original/Tilemap/Modern_Office_16x16.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Assets/Scripts/Introdução.gd" type="Script" id=4]
 [ext_resource path="res://Assets/Prefab/Player_indro.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/Art/Interface/fonte/classic_memesbruh03.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://Assets/Scripts/Path2D.gd" type="Script" id=7]
 
 [sub_resource type="TileSet" id=1]
 0/name = "Room_Builder_16x16.png 0"
@@ -2519,6 +2520,11 @@ points = PoolVector2Array( 16, 29.7975, 0.480171, 29.7975, 0.480171, 8.80179, 16
 } ]
 38/z_index = 0
 
+[sub_resource type="Curve2D" id=55]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 30, 93, 0, 0, 0, 0, 34, 280, 0, 0, 0, 0, 218, 280 )
+}
+
 [sub_resource type="TileSet" id=8]
 0/name = "Room_Builder_16x16.png 0"
 0/texture = ExtResource( 1 )
@@ -2618,7 +2624,7 @@ tile_data = PoolIntArray( 196613, 536870966, 0, 262149, 536870967, 0, 262152, 53
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Terreno 1"]
 position = Vector2( 88, 62 )
 frames = SubResource( 51 )
-frame = 9
+frame = 7
 playing = true
 
 [node name="MOBÍLIA 2" type="TileMap" parent="Terreno 1"]
@@ -2639,7 +2645,34 @@ script = SubResource( 12 )
 tile_set = SubResource( 7 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( 14, 11, 0, 65544, 18, 0, 131072, 20, 0, 262148, 36, 0, 262164, 21, 0, 327684, 30, 0, 327687, 9, 0, 327688, 8, 0, 327689, 7, 0, 327690, 29, 0, 327693, 28, 0, 393221, 38, 0, 393224, 38, 0, 393227, 38, 0, 393230, 38, 0, 393235, 30, 0, 524292, 30, 0, 524295, 28, 0, 524298, 26, 0, 524299, 8, 0, 524300, 7, 0, 524301, 1, 0, 524302, 2, 0, 524303, 3, 0, 589838, 10, 0, 786450, 536870923, 0, 1114129, 536870931, 0, 1114130, 536870947, 0, 1179649, 536870934, 0, 1179650, 536870919, 0, 1179651, 536870949, 0, 1179652, 536870921, 0, 1179653, 536870939, 0, 1179665, 536870918, 0, 1179666, 536870932, 0 )
+tile_data = PoolIntArray( 14, 11, 0, 65544, 18, 0, 131072, 20, 0, 262148, 36, 0, 262164, 21, 0, 327684, 30, 0, 327687, 9, 0, 327688, 8, 0, 327689, 7, 0, 327690, 29, 0, 327693, 28, 0, 393221, 38, 0, 393224, 38, 0, 393227, 38, 0, 393230, 38, 0, 524292, 30, 0, 524295, 28, 0, 524298, 26, 0, 524299, 8, 0, 524300, 7, 0, 524301, 1, 0, 524302, 2, 0, 524303, 3, 0, 589838, 10, 0, 786450, 536870923, 0, 1114129, 536870931, 0, 1114130, 536870947, 0, 1179649, 536870934, 0, 1179650, 536870919, 0, 1179651, 536870949, 0, 1179652, 536870921, 0, 1179653, 536870939, 0, 1179665, 536870918, 0, 1179666, 536870932, 0 )
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource( 55 )
+script = ExtResource( 7 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 30, 93 )
+rotate = false
+loop = false
+
+[node name="Player_indro" parent="Path2D/PathFollow2D" instance=ExtResource( 5 )]
+position = Vector2( -1, -19 )
+
+[node name="Camera2D" type="Camera2D" parent="Path2D/PathFollow2D/Player_indro"]
+visible = false
+position = Vector2( 1, 0 )
+current = true
+process_mode = 0
+limit_left = 4
+limit_top = 0
+limit_right = 340
+limit_bottom = 316
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+drag_margin_left = 0.21
+editor_draw_drag_margin = true
 
 [node name="Terreno 2" type="Node2D" parent="."]
 
@@ -2662,23 +2695,6 @@ tile_data = PoolIntArray( 851969, 3, 0 )
 tile_set = SubResource( 6 )
 format = 1
 
-[node name="Player_indro" parent="." instance=ExtResource( 5 )]
-position = Vector2( 32, 64 )
-
-[node name="Camera2D" type="Camera2D" parent="Player_indro"]
-position = Vector2( 1, 0 )
-current = true
-process_mode = 0
-limit_left = 4
-limit_top = 0
-limit_right = 320
-limit_bottom = 316
-drag_margin_h_enabled = true
-drag_margin_v_enabled = true
-smoothing_enabled = true
-drag_margin_left = 0.21
-editor_draw_drag_margin = true
-
 [node name="Terreno 3" type="Node2D" parent="."]
 
 [node name="Parede" type="TileMap" parent="Terreno 3"]
@@ -2700,9 +2716,10 @@ format = 1
 tile_data = PoolIntArray( 196616, 54, 0, 196619, 54, 0, 196622, 54, 0 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( -9, 157.5 )
+position = Vector2( -9, 157 )
 shape = SubResource( 9 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
