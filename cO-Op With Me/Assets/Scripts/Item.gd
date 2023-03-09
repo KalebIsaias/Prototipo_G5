@@ -40,16 +40,6 @@ func _process(delta):
 		$Tabuleiro.visible = true
 	elif Global.pegou_tabuleiro == 0:
 		$Tabuleiro.visible = false
-	#if Global.apareceu_not_massa == 1:
-	#	$"Notificação".texture = load("res://Assets/Art/Interface/Notificação.png")
-	#	$"Notificação".visible = true
-	#elif Global.apareceu_not_massa == 0:
-	#	$"Notificação".visible = false
-	#if Global.apareceu_not_bolo == 1:
-	#	$"Notificação_bolo".texture = load("res://Assets/Art/Interface/Notificação do bolo.png")
-	#	$"Notificação_bolo".visible = true
-	#elif Global.apareceu_not_bolo == 0:
-	#	$"Notificação_bolo".visible = false
 	if Global.pegou_bolo_assado == 1:
 		$Bolo_assado.texture = load("res://Assets/Art/Interface/Bolo assado.png")
 		$Bolo_assado.visible = true

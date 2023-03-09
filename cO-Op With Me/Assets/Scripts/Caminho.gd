@@ -1,10 +1,11 @@
-#extends Path2D
+extends Path2D
 
 
-#export var runSpeed = 40
+func _physics_process(delta):
+	if Global.chat == 0:
+		$PathFollow2D.set_offset($PathFollow2D.get_offset()+50*delta)
+		$PathFollow2D/NPC_Otto/AnimatedSprite.play("chef_run")
+	if $PathFollow2D.unit_offset == 1:
+		$PathFollow2D/NPC_Otto/AnimatedSprite.play("cook_back")
+		$PathFollow2D.set_offset($PathFollow2D.get_offset()+0*delta)
 
-#func _process(delta):
-	#set_offset(get_offset() + runSpeed * delta)
-	#$AnimatedSprite.play("chef_run")
-	#if unit_offset == 1:
-	#	$AnimatedSprite.play("cook_back")

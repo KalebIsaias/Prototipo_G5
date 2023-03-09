@@ -1,10 +1,10 @@
-[gd_scene load_steps=85 format=2]
+[gd_scene load_steps=142 format=2]
 
 [ext_resource path="res://Assets/Prefab/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Assets/Prefab/NPC_chef.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Scripts/Caminho.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Prefab/Interface.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Art/Sprites Original/Tilemap/TopDownHouse_FloorsAndWalls.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Scripts/NPC_chef.gd" type="Script" id=5]
+[ext_resource path="res://Assets/Art/Sprites Original/NPC/NPC.CHEF.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Art/Sprites Original/Tilemap/24_Ice_Cream_Shop.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Scripts/Fogão.gd" type="Script" id=7]
 [ext_resource path="res://Assets/Scripts/Geladeira.gd" type="Script" id=8]
@@ -22,6 +22,19 @@
 [ext_resource path="res://Assets/Scripts/Bancada.gd" type="Script" id=20]
 [ext_resource path="res://Assets/Prefab/Control.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Assets/Art/Interface/Tabuleiro vazio.png" type="Texture" id=22]
+[ext_resource path="res://Assets/Art/Interface/Notificação.png" type="Texture" id=23]
+[ext_resource path="res://Assets/Art/import/Kitchen/UI_16x16.png" type="Texture" id=24]
+[ext_resource path="res://Assets/Art/Interface/Bolo pronto.png" type="Texture" id=25]
+[ext_resource path="res://Assets/Art/Interface/Bolo .png" type="Texture" id=26]
+[ext_resource path="res://Assets/Art/Interface/RECEITA.png" type="Texture" id=27]
+[ext_resource path="res://Assets/Art/Interface/fonte/classic_memesbruh03.ttf" type="DynamicFontData" id=28]
+[ext_resource path="res://Assets/Scripts/Receita.gd" type="Script" id=29]
+
+[sub_resource type="DynamicFont" id=108]
+font_data = ExtResource( 28 )
+
+[sub_resource type="Theme" id=109]
+default_font = SubResource( 108 )
 
 [sub_resource type="TileSet" id=24]
 3/name = "Chão p.1"
@@ -1251,8 +1264,226 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=82]
 extents = Vector2( 24, 29 )
 
+[sub_resource type="CircleShape2D" id=147]
+radius = 5.99998
+
+[sub_resource type="Curve2D" id=140]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 49, 127, 0, 0, 0, 0, 152, 126, 0, 0, 0, 0, 151, 95 )
+}
+
+[sub_resource type="AtlasTexture" id=106]
+atlas = ExtResource( 5 )
+region = Rect2( 16, 64, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=107]
+atlas = ExtResource( 5 )
+region = Rect2( 32, 64, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=141]
+atlas = ExtResource( 5 )
+region = Rect2( 48, 64, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=142]
+atlas = ExtResource( 5 )
+region = Rect2( 64, 64, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=110]
+atlas = ExtResource( 5 )
+region = Rect2( 80, 64, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=111]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 64, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=112]
+atlas = ExtResource( 5 )
+region = Rect2( 16, 64, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=113]
+atlas = ExtResource( 5 )
+region = Rect2( 32, 64, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=114]
+atlas = ExtResource( 5 )
+region = Rect2( 48, 64, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=115]
+atlas = ExtResource( 5 )
+region = Rect2( 64, 64, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=121]
+atlas = ExtResource( 5 )
+region = Rect2( 96, 64, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=122]
+atlas = ExtResource( 5 )
+region = Rect2( 112, 64, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=123]
+atlas = ExtResource( 5 )
+region = Rect2( 128, 64, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=124]
+atlas = ExtResource( 5 )
+region = Rect2( 144, 64, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=125]
+atlas = ExtResource( 5 )
+region = Rect2( 160, 64, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=126]
+atlas = ExtResource( 5 )
+region = Rect2( 176, 64, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=128]
+atlas = ExtResource( 5 )
+region = Rect2( 112, 416, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=129]
+atlas = ExtResource( 5 )
+region = Rect2( 128, 416, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=127]
+atlas = ExtResource( 5 )
+region = Rect2( 96, 416, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=130]
+atlas = ExtResource( 5 )
+region = Rect2( 144, 416, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=131]
+atlas = ExtResource( 5 )
+region = Rect2( 160, 416, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=132]
+atlas = ExtResource( 5 )
+region = Rect2( 176, 416, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=134]
+atlas = ExtResource( 5 )
+region = Rect2( 288, 32, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=135]
+atlas = ExtResource( 5 )
+region = Rect2( 304, 32, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=136]
+atlas = ExtResource( 5 )
+region = Rect2( 320, 32, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=137]
+atlas = ExtResource( 5 )
+region = Rect2( 336, 32, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=138]
+atlas = ExtResource( 5 )
+region = Rect2( 352, 32, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=139]
+atlas = ExtResource( 5 )
+region = Rect2( 368, 32, 16, 32 )
+
+[sub_resource type="SpriteFrames" id=143]
+animations = [ {
+"frames": [ SubResource( 106 ), SubResource( 107 ), SubResource( 141 ), SubResource( 142 ), SubResource( 110 ), SubResource( 111 ), SubResource( 112 ), SubResource( 113 ), SubResource( 114 ), SubResource( 115 ), SubResource( 121 ), SubResource( 122 ), SubResource( 123 ), SubResource( 124 ), SubResource( 125 ), SubResource( 126 ), SubResource( 106 ) ],
+"loop": true,
+"name": "chef_run",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 128 ), SubResource( 129 ), SubResource( 127 ), SubResource( 130 ), SubResource( 131 ), SubResource( 132 ) ],
+"loop": true,
+"name": "cook_back",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 134 ), SubResource( 135 ), SubResource( 136 ), SubResource( 137 ), SubResource( 138 ), SubResource( 139 ) ],
+"loop": true,
+"name": "idle_front",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=144]
+radius = 9.0
+
 [sub_resource type="RectangleShape2D" id=97]
 extents = Vector2( 6.5, 3.75 )
+
+[sub_resource type="AtlasTexture" id=148]
+atlas = ExtResource( 24 )
+region = Rect2( 0, 135, 16, 20 )
+
+[sub_resource type="AtlasTexture" id=149]
+atlas = ExtResource( 24 )
+region = Rect2( 16, 135, 16, 20 )
+
+[sub_resource type="AtlasTexture" id=150]
+atlas = ExtResource( 24 )
+region = Rect2( 32, 135, 16, 20 )
+
+[sub_resource type="AtlasTexture" id=151]
+atlas = ExtResource( 24 )
+region = Rect2( 48, 135, 16, 20 )
+
+[sub_resource type="AtlasTexture" id=152]
+atlas = ExtResource( 24 )
+region = Rect2( 64, 135, 16, 20 )
+
+[sub_resource type="AtlasTexture" id=153]
+atlas = ExtResource( 24 )
+region = Rect2( 80, 135, 16, 20 )
+
+[sub_resource type="AtlasTexture" id=154]
+atlas = ExtResource( 24 )
+region = Rect2( 96, 135, 16, 20 )
+
+[sub_resource type="AtlasTexture" id=155]
+atlas = ExtResource( 24 )
+region = Rect2( 112, 135, 16, 20 )
+
+[sub_resource type="AtlasTexture" id=99]
+atlas = ExtResource( 24 )
+region = Rect2( 0, 136, 16, 17 )
+
+[sub_resource type="AtlasTexture" id=100]
+atlas = ExtResource( 24 )
+region = Rect2( 16, 136, 16, 17 )
+
+[sub_resource type="AtlasTexture" id=101]
+atlas = ExtResource( 24 )
+region = Rect2( 32, 170, 16, 17 )
+
+[sub_resource type="AtlasTexture" id=102]
+atlas = ExtResource( 24 )
+region = Rect2( 48, 170, 16, 17 )
+
+[sub_resource type="AtlasTexture" id=103]
+atlas = ExtResource( 24 )
+region = Rect2( 64, 170, 16, 17 )
+
+[sub_resource type="AtlasTexture" id=104]
+atlas = ExtResource( 24 )
+region = Rect2( 80, 170, 16, 17 )
+
+[sub_resource type="AtlasTexture" id=105]
+atlas = ExtResource( 24 )
+region = Rect2( 96, 170, 16, 17 )
+
+[sub_resource type="AtlasTexture" id=145]
+atlas = ExtResource( 24 )
+region = Rect2( 112, 170, 16, 17 )
+
+[sub_resource type="SpriteFrames" id=146]
+animations = [ {
+"frames": [ SubResource( 148 ), SubResource( 149 ), SubResource( 150 ), SubResource( 151 ), SubResource( 152 ), SubResource( 153 ), SubResource( 154 ), SubResource( 155 ) ],
+"loop": true,
+"name": "Tempo-batedeira",
+"speed": 2.0
+}, {
+"frames": [ SubResource( 99 ), SubResource( 100 ), SubResource( 101 ), SubResource( 102 ), SubResource( 103 ), SubResource( 104 ), SubResource( 105 ), SubResource( 145 ) ],
+"loop": true,
+"name": "Tempo_fogao",
+"speed": 1.0
+} ]
 
 [sub_resource type="RectangleShape2D" id=18]
 extents = Vector2( 7.5, 5.25 )
@@ -1266,9 +1497,6 @@ extents = Vector2( 7.5, 7.5 )
 [sub_resource type="RectangleShape2D" id=96]
 extents = Vector2( 8.5, 7 )
 
-[sub_resource type="CircleShape2D" id=74]
-radius = 8.0
-
 [sub_resource type="RectangleShape2D" id=98]
 extents = Vector2( 5.5, 6 )
 
@@ -1279,10 +1507,64 @@ script = ExtResource( 15 )
 [node name="Ui" type="CanvasLayer" parent="."]
 
 [node name="Interface" parent="Ui" instance=ExtResource( 3 )]
-margin_left = 1.0
-margin_top = 22.0
-margin_right = 1.0
-margin_bottom = 22.0
+margin_left = -2.0
+margin_top = 21.0
+margin_right = -2.0
+margin_bottom = 21.0
+
+[node name="Receita" type="TextureRect" parent="Ui"]
+visible = false
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = -90.0
+margin_top = -238.0
+margin_right = 230.0
+margin_bottom = -58.0
+rect_scale = Vector2( 1.3, 1.3 )
+texture = ExtResource( 27 )
+script = ExtResource( 29 )
+
+[node name="Ingredientes" type="Label" parent="Ui/Receita"]
+visible = false
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 266.154
+margin_top = 83.0769
+margin_right = 426.154
+margin_bottom = 206.077
+rect_scale = Vector2( 0.3, 0.3 )
+theme = SubResource( 109 )
+text = "Ingredientes
+- Ovo (geladeira)
+- Leite (geladeira) 
+- Farinha (embaixo
+da faca)
+- Chocolate (gela-
+deira)
+- Coloque-os na
+batedeira na
+ordem
+"
+
+[node name="Modo de preparo" type="Label" parent="Ui/Receita"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 266.923
+margin_top = 83.8462
+margin_right = 426.923
+margin_bottom = 290.846
+rect_scale = Vector2( 0.3, 0.3 )
+theme = SubResource( 109 )
+text = " Modo de preparo
+- Pegue a forma 
+(em cima do balcáo)
+- Coloque a massa 
+ do bolo
+- Coloque-o no 
+ forno
+- Retire do forno
+- Leve o bolo para 
+ a bancada que você 
+-Otto colocará o
+ recheio"
 
 [node name="Terrain" type="Node2D" parent="."]
 
@@ -1359,14 +1641,11 @@ format = 1
 
 [node name="NPC_Client" type="Area2D" parent="NPCs"]
 position = Vector2( 19, 284 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="NPCs/NPC_Client"]
 frames = SubResource( 63 )
 animation = "sit"
-frame = 2
+frame = 5
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/NPC_Client"]
@@ -1383,7 +1662,6 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="NPCs/NPC_Atendente"]
 frames = SubResource( 81 )
 animation = "atendente_idle"
-frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/NPC_Atendente"]
@@ -1391,21 +1669,34 @@ visible = false
 position = Vector2( 0, 27 )
 shape = SubResource( 82 )
 
-[node name="NPC_chef" parent="NPCs" instance=ExtResource( 2 )]
-script = ExtResource( 5 )
+[node name="Colisão NPC" type="CollisionShape2D" parent="NPCs/NPC_Atendente"]
+position = Vector2( 0, 10 )
+rotation = -2.87979
+shape = SubResource( 147 )
 
-[node name="CollisionShape2D" parent="NPCs/NPC_chef" index="0"]
-position = Vector2( 188, 12 )
+[node name="Path2D" type="Path2D" parent="NPCs"]
+curve = SubResource( 140 )
+script = ExtResource( 2 )
 
-[node name="AnimatedSprite" parent="NPCs/NPC_chef" index="1"]
-position = Vector2( 189, 5 )
-frame = 2
+[node name="PathFollow2D" type="PathFollow2D" parent="NPCs/Path2D"]
+position = Vector2( 49, 127 )
+rotate = false
+loop = false
 
-[node name="Label" type="Label" parent="NPCs/NPC_chef"]
-margin_left = 17.0
-margin_top = 16.0
-margin_right = 57.0
-margin_bottom = 30.0
+[node name="NPC_Otto" type="KinematicBody2D" parent="NPCs/Path2D/PathFollow2D"]
+position = Vector2( 3, -5 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="NPCs/Path2D/PathFollow2D/NPC_Otto"]
+position = Vector2( -6, -9 )
+rotation = -0.0331005
+frames = SubResource( 143 )
+animation = "idle_front"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/Path2D/PathFollow2D/NPC_Otto"]
+position = Vector2( -5, 0 )
+rotation = -0.0331005
+shape = SubResource( 144 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 135, 113 )
@@ -1415,7 +1706,7 @@ __meta__ = {
 }
 
 [node name="AnimatedSprite" parent="Player" index="0"]
-frame = 1
+frame = 4
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2( 1, 0 )
@@ -1474,6 +1765,19 @@ position = Vector2( 152, 93.25 )
 shape = SubResource( 97 )
 
 [node name="Timer" type="Timer" parent="Areas/Fogão"]
+wait_time = 8.0
+one_shot = true
+
+[node name="Temporizador" type="AnimatedSprite" parent="Areas/Fogão"]
+position = Vector2( 152, 59 )
+scale = Vector2( 0.8, 0.8 )
+frames = SubResource( 146 )
+animation = "Tempo-batedeira"
+
+[node name="Notificação" type="Sprite" parent="Areas/Fogão"]
+position = Vector2( 151.775, 58.2875 )
+scale = Vector2( 0.778126, 0.811842 )
+texture = ExtResource( 23 )
 
 [node name="Refrigerator" type="Area2D" parent="Areas"]
 position = Vector2( 104, 72 )
@@ -1494,8 +1798,20 @@ position = Vector2( 207, 88.5 )
 shape = SubResource( 88 )
 
 [node name="Timer" type="Timer" parent="Areas/Batedeira"]
-wait_time = 2.0
+wait_time = 3.5
 one_shot = true
+
+[node name="Temporizador" type="AnimatedSprite" parent="Areas/Batedeira"]
+position = Vector2( 152, 59 )
+scale = Vector2( 0.8, 0.8 )
+frames = SubResource( 146 )
+animation = "Tempo_fogao"
+offset = Vector2( 70, -5 )
+
+[node name="Notificação" type="Sprite" parent="Areas/Batedeira"]
+position = Vector2( 208.6, 55.15 )
+scale = Vector2( 0.8, 0.826316 )
+texture = ExtResource( 23 )
 
 [node name="Armario" type="Area2D" parent="Areas"]
 script = ExtResource( 14 )
@@ -1549,10 +1865,6 @@ position = Vector2( -32, 28.75 )
 scale = Vector2( 1, 2.42188 )
 polygon = PoolVector2Array( 16, 104, 48, 104, 48, -8, 16, -8 )
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Areas/StaticBody2D"]
-position = Vector2( 40, 40 )
-shape = SubResource( 74 )
-
 [node name="Bancada" type="Area2D" parent="Areas"]
 script = ExtResource( 20 )
 
@@ -1560,16 +1872,26 @@ script = ExtResource( 20 )
 position = Vector2( 29, 123 )
 shape = SubResource( 98 )
 
-[node name="TabuleiroVazio" type="Sprite" parent="."]
-position = Vector2( 17, 114 )
+[node name="TabuleiroVazio" type="Sprite" parent="Areas/Bancada"]
+position = Vector2( 18, 113 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 22 )
+
+[node name="Bolo" type="Sprite" parent="Areas/Bancada"]
+position = Vector2( 17, 111 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 26 )
+
+[node name="BoloPronto" type="Sprite" parent="Areas/Bancada"]
+position = Vector2( 17, 111 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 25 )
 
 [node name="Caixa de texto" parent="." instance=ExtResource( 21 )]
 visible = false
 
 [connection signal="body_entered" from="Areas/Fogão" to="Areas/Fogão" method="_on_Fogo_body_entered"]
-[connection signal="body_exited" from="Areas/Fogão" to="Areas/Bancada" method="_on_Fogo_body_exited"]
+[connection signal="body_exited" from="Areas/Fogão" to="Areas/Fogão" method="_on_Fogo_body_exited"]
 [connection signal="timeout" from="Areas/Fogão/Timer" to="Areas/Fogão" method="_on_Timer_timeout"]
 [connection signal="body_entered" from="Areas/Refrigerator" to="Areas/Refrigerator" method="_on_Refrigerator_body_entered"]
 [connection signal="body_exited" from="Areas/Refrigerator" to="Areas/Refrigerator" method="_on_Refrigerator_body_exited"]
@@ -1583,5 +1905,4 @@ visible = false
 [connection signal="body_entered" from="Areas/Bancada" to="Areas/Bancada" method="_on_Bancada_body_entered"]
 [connection signal="body_exited" from="Areas/Bancada" to="Areas/Bancada" method="_on_Bancada_body_exited"]
 
-[editable path="NPCs/NPC_chef"]
 [editable path="Player"]

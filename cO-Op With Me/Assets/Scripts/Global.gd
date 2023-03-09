@@ -21,12 +21,10 @@ var tem_massa: int = 1
 var tem_tabuleiro: int = 1
 var tem_bolo_assado: int = 1
 
-#Variáveis globais das notificações
-var apareceu_not_massa:int = 0
-var apareceu_not_bolo:int = 0
-
 #Variáveis globais do chat
 var chat = 1
+
+var fala = 0 
 
 
 
