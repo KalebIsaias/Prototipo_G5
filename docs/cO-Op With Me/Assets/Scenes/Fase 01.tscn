@@ -1645,7 +1645,7 @@ position = Vector2( 19, 284 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="NPCs/NPC_Client"]
 frames = SubResource( 63 )
 animation = "sit"
-frame = 4
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/NPC_Client"]
@@ -1662,7 +1662,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="NPCs/NPC_Atendente"]
 frames = SubResource( 81 )
 animation = "atendente_idle"
-frame = 5
+frame = 4
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/NPC_Atendente"]
@@ -1692,7 +1692,7 @@ position = Vector2( -6, -9 )
 rotation = -0.0331005
 frames = SubResource( 143 )
 animation = "idle_front"
-frame = 5
+frame = 4
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/Path2D/PathFollow2D/NPC_Otto"]
@@ -1708,7 +1708,7 @@ __meta__ = {
 }
 
 [node name="AnimatedSprite" parent="Player" index="0"]
-frame = 3
+frame = 2
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2( 1, 0 )
