@@ -1,5 +1,6 @@
-extends Node
 # Script para variáveis globais
+extends Node
+
 
 # Variáveis globais da hotbar
 var hide_slot: int = 0
