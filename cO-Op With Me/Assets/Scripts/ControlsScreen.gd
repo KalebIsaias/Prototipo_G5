@@ -1,3 +1,4 @@
+#Script da tela de controles
 extends Node2D
 
 func _ready():

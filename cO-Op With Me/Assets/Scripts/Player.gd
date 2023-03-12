@@ -44,7 +44,8 @@ func _physics_process(_delta):
 		$AnimatedSprite.play("run_back")
 	elif Input.get_action_strength("ui_down"):
 		$AnimatedSprite.play("run_front")
-		
+	
+	#Condição para se mover apenas quando o chat terminar	
 	if Global.chat == 1:
 		speed = 0
 		$AnimatedSprite.play("idle_front")
